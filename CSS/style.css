@@ -1,0 +1,10 @@
+.sec-Patie-Title{
+    display: flex;
+    justify-content: space-between;
+}
+.Sec-Prtie-Filtrage{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
