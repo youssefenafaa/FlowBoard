@@ -23,7 +23,7 @@ containar.classList.add('containarTodo')
     TitleElelment.textContent=element.title
 
     let DescriptionElelment=document.createElement("p")
-    DescriptionElelment.textContent=element.title
+    DescriptionElelment.textContent=element.description
 
 
     let statusElelment=document.createElement("p")
@@ -55,7 +55,7 @@ containar.classList.add('containarInProgress')
     TitleElelment.textContent=element.title
 
     let DescriptionElelment=document.createElement("p")
-    DescriptionElelment.textContent=element.title
+    DescriptionElelment.textContent=element.description
 
     let statusElelment=document.createElement("p")
     statusElelment.textContent=element.status
@@ -86,7 +86,7 @@ containar.classList.add('containarDone')
     TitleElelment.textContent=element.title
 
     let DescriptionElelment=document.createElement("p")
-    DescriptionElelment.textContent=element.title
+    DescriptionElelment.textContent=element.description
 
     let statusElelment=document.createElement("p")
     statusElelment.textContent=element.status

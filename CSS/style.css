@@ -39,66 +39,77 @@ header{
 }
 
 #sec-Afichage{
+    
     display: flex;
-    justify-content:spac ;
-    align-items:center;
+    justify-content: space-around;
+  
 
 }
 #title-Todo{
     color:aliceblue;
     background-color: #64748b;
-    padding:10px 0px 0px 60px  ;
-    margin-left: 45px;
-    width: 250px;
+    padding-top:5px  ;
+    padding-left: 70px;
+    margin-left: 30px;
+    width: 300px;
     height: auto;
     border-radius: 10px;
+    border: solid rgb(91, 87, 87);
 }
 #title-InProgress{
     color:aliceblue;
     background-color: #3B82F6;
-    padding:10px 0px 0px 60px  ;
-  color:aliceblue;
-   padding:10px  ;
-   margin-left: 45px;
-    width: 250px;
+    padding-top:5px ;
+    padding-left: 50px;
+    margin-left: 30px;
+    width: 300px;
     height: auto;
     border-radius: 10px;
+    border: solid rgb(76, 167, 192);
 }
 #title-Done{
     color:aliceblue;
     background-color: #146331; 
-    padding: 10px;
-    margin-left: 45px;
-    width: 250px;
+     padding-top:5px ;
+    padding-left: 70px;
+    margin-left: 30px;
+    width: 300px;
     height: auto;
     border-radius: 10px;
+    border: solid rgb(28, 184, 95);
 }
 
 .containarDone{
     background-color: #146331;
     color: white;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px;
+    width: 300px;
+    height: auto;
 }
 .containarInProgress{
     background-color: #3B82F6;
     color: white;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px;
+    width: 300px;
+    height: auto;
 }
 .containarTodo{
     background-color: #64748b;
     color: white;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px;
-  
+    width: 300px;
+    height:auto ;
+
 
 }
  .sec-Inprogress{
-    margin-bottom: 113rem;
+    margin-bottom: 115rem;
 } 
  .sec-Done{
-    margin-bottom:65rem ;
+    margin-bottom:79rem ;
 } 
 
 
