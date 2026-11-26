@@ -1,11 +1,11 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: 0;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: 0px;
 }
 
 header {
-    /* margin: 10px; */
+    
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -122,15 +122,6 @@ header {
 
 }
 
-.sec-Inprogress {
-    margin-bottom: 115rem;
-}
-
-.sec-Done {
-    margin-bottom: 79rem;
-}
-
-
 
 .afichage-Done {
     display: flex;
@@ -192,5 +183,62 @@ header {
 .btnIcon {
     width: 30px;
     height: 30px;
+
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+    /* Header */
+    .sec-Patie-Title {
+        flex-direction: column;
+    }
+
+    .partie-customer {
+        padding: 10px;
+    }
+
+    /* Filter */
+    .Sec-Prtie-Filtrage {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .Sec-Prtie-Filtrage input,
+    .Sec-Prtie-Filtrage select {
+        width: 100% !important;
+    }
+
+    /* Les trois colonnes */
+    #sec-Afichage {
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .sec-Todo,
+    .sec-Inprogress,
+    .sec-Done {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    /* Les titres */
+    #title-Todo,
+    #title-InProgress,
+    #title-Done {
+        width: 100%;
+        margin-left: 0;
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* Les cartes */
+    .containarTodo,
+    .containarInProgress,
+    .containarDone {
+        width: 100%;
+    }
 
 }
