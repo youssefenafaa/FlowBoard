@@ -108,21 +108,37 @@ containar.classList.add('containarDone')
     
 });
 
-}
 
+}
+//show Modal //
 
 
 const butAjouterCard=document.querySelector("#but-Ajouter")
 const sectionmodale=document.querySelector("#modale")
-const myModal=new bootstrap.Modal(sectionmodale)
+export const myModal=new bootstrap.Modal(sectionmodale)
 
-const sectionCards=document.querySelector("#sec-Afichage")
+
+
+// const sectionCards=document.querySelector("#sec-Afichage")
 
 butAjouterCard.addEventListener("click",()=>{
    
-   
    myModal.show()
-
-
-
 })
+
+export const ButcreateCard=document.querySelector("#createCard")
+export function createtasckSurForm(){
+
+    let tasck={
+        title:document.querySelector("#taskTitle").value,
+        description:document.querySelector("#taskDescription").value,
+        status:document.querySelector("#taskStatus").value,
+        priority:document.querySelector("#taskPriority").value,
+        assignee:document.querySelector("#taskAssignee").value,
+    }
+    return tasck
+
+
+}
+
+

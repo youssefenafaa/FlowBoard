@@ -12,4 +12,14 @@ const options = {
 
 }
 
-loadData()
+export async function createTasck(tasck){
+
+const options = {
+  method: 'POST',
+  url: 'https://flowboard-api-virid.vercel.app/cards/?password=1234',
+  data: tasck
+}
+  const { data } = await axios.request(options)
+  return data
+
+}
