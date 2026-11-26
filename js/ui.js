@@ -1,150 +1,184 @@
-let PartieTodo=document.querySelector(".sec-Todo")
-let PartieInProgress=document.querySelector(".sec-Inprogress")
-let PartieDone=document.querySelector(".sec-Done")
+let PartieTodo = document.querySelector(".sec-Todo")
+let PartieInProgress = document.querySelector(".sec-Inprogress")
+let PartieDone = document.querySelector(".sec-Done")
 
-let TodoAffichage=document.querySelector(".afichage-todo")
-let InProgressAffichage=document.querySelector(".afichage-Inprogress")
-let afichageDone=document.querySelector(".afichage-Done")
-
-
-export function afichage(cards){
-  document.querySelector(".afichage-todo").textContent=""
-  document.querySelector(".afichage-Inprogress").textContent=""
-document.querySelector(".afichage-Done").textContent=""
-
-cards.forEach(element => {
-    if(element.status=="todo"){
-let containar=document.createElement("li")
-containar.classList.add('containarTodo')
-
-    let idElelment=document.createElement("p")
-    idElelment.textContent=element.id
-    idElelment.classList.add("ClassIDTodoElements")
-
-     let TitleElelment=document.createElement("h4")
-    TitleElelment.textContent=element.title
-
-    let DescriptionElelment=document.createElement("p")
-    DescriptionElelment.textContent= "Description : " + element.description
+let TodoAffichage = document.querySelector(".afichage-todo")
+let InProgressAffichage = document.querySelector(".afichage-Inprogress")
+let afichageDone = document.querySelector(".afichage-Done")
 
 
-    let statusElelment=document.createElement("p")
-    statusElelment.textContent="status : " + element.status 
+export function afichage(cards) {
+    document.querySelector(".afichage-todo").textContent = ""
+    document.querySelector(".afichage-Inprogress").textContent = ""
+    document.querySelector(".afichage-Done").textContent = ""
 
-     let priorityElelment=document.createElement("p")
-    priorityElelment.textContent="priority : "+ element.priority
+    cards.forEach(element => {
+        if (element.status == "todo") {
+            let containar = document.createElement("li")
+            containar.classList.add('containarTodo')
 
-    let assigneeElelment=document.createElement("p")
-    assigneeElelment.textContent="asignne -> " + element.assignee
+            let idElelment = document.createElement("p")
+            idElelment.textContent = element.id
+            idElelment.classList.add("ClassIDTodoElements")
 
-     containar.append(idElelment,TitleElelment,DescriptionElelment,statusElelment,priorityElelment,assigneeElelment)
-     
+            let TitleElelment = document.createElement("h4")
+            TitleElelment.textContent = element.title
 
-
-    TodoAffichage.append( containar)
-    }
-
-
-
-        if(element.status=="in-progress"){
-let containar=document.createElement("li")
-containar.classList.add('containarInProgress')
-
-    let idElelment=document.createElement("p")
-    idElelment.textContent=element.id
-    idElelment.classList.add("ClassIDInProgressElements")
-
-     let TitleElelment=document.createElement("h4")
-    TitleElelment.textContent=element.title
-
-    let DescriptionElelment=document.createElement("p")
-    DescriptionElelment.textContent="Description : " + element.description
-
-    let statusElelment=document.createElement("p")
-    statusElelment.textContent="status : " + element.status 
-
-     let priorityElelment=document.createElement("p")
-    priorityElelment.textContent="priority : "+ element.priority
-
-    let assigneeElelment=document.createElement("p")
-    assigneeElelment.textContent="asignne -> " + element.assignee
-
-     containar.append(idElelment,TitleElelment,DescriptionElelment,statusElelment,priorityElelment,assigneeElelment)
+            let DescriptionElelment = document.createElement("p")
+            DescriptionElelment.textContent = "Description : " + element.description
 
 
-    InProgressAffichage.append( containar)
-    }
+            let statusElelment = document.createElement("p")
+            statusElelment.textContent = "status : " + element.status
+
+            let priorityElelment = document.createElement("p")
+            priorityElelment.textContent = "priority : " + element.priority
+
+            let assigneeElelment = document.createElement("p")
+            assigneeElelment.textContent = "asignne -> " + element.assignee
+
+            let ModiferCard = document.createElement("button")
+            ModiferCard.textContent = "Modifier Card"
+            ModiferCard.setAttribute("data-id", element.id)
+            ModiferCard.classList.add("butModifer", "btn", "btn-dark")
+
+            containar.append(idElelment, TitleElelment, DescriptionElelment, statusElelment, priorityElelment, assigneeElelment, ModiferCard)
 
 
 
-    
-        if(element.status=="done"){
-let containar=document.createElement("li")
-containar.classList.add('containarDone')
-
-    let idElelment=document.createElement("p")
-    idElelment.textContent=element.id
-    idElelment.classList.add("ClassIDDoneElements")
-
-     let TitleElelment=document.createElement("h4")
-    TitleElelment.textContent=element.title
-
-    let DescriptionElelment=document.createElement("p")
-    DescriptionElelment.textContent="Description : " + element.description
-
-    let statusElelment=document.createElement("p")
-    statusElelment.textContent="status : " + element.status 
-
-     let priorityElelment=document.createElement("p")
-    priorityElelment.textContent="priority : "+ element.priority
-
-    let assigneeElelment=document.createElement("p")
-    assigneeElelment.textContent="asignne -> " + element.assignee
-
-     containar.append(idElelment,TitleElelment,DescriptionElelment,statusElelment,priorityElelment,assigneeElelment)
+            TodoAffichage.append(containar)
+        }
 
 
-    afichageDone.append( containar)
-    }
-    
-});
+
+        if (element.status == "in-progress") {
+            let containar = document.createElement("li")
+            containar.classList.add('containarInProgress')
+
+            let idElelment = document.createElement("p")
+            idElelment.textContent = element.id
+            idElelment.classList.add("ClassIDInProgressElements")
+
+            let TitleElelment = document.createElement("h4")
+            TitleElelment.textContent = element.title
+
+            let DescriptionElelment = document.createElement("p")
+            DescriptionElelment.textContent = "Description : " + element.description
+
+            let statusElelment = document.createElement("p")
+            statusElelment.textContent = "status : " + element.status
+
+            let priorityElelment = document.createElement("p")
+            priorityElelment.textContent = "priority : " + element.priority
+
+            let assigneeElelment = document.createElement("p")
+            assigneeElelment.textContent = "asignne -> " + element.assignee
+
+            let ModiferCard = document.createElement("button")
+            ModiferCard.textContent = "Modifier Card"
+            ModiferCard.setAttribute("data-id", element.id)
+            ModiferCard.classList.add("butModifer", "btn", "btn-light")
+
+            containar.append(idElelment, TitleElelment, DescriptionElelment, statusElelment, priorityElelment, assigneeElelment, ModiferCard)
 
 
-}
+            InProgressAffichage.append(containar)
+        }
+
+
+
+
+        if (element.status == "done") {
+            let containar = document.createElement("li")
+            containar.classList.add('containarDone')
+
+            let idElelment = document.createElement("p")
+            idElelment.textContent = element.id
+            idElelment.classList.add("ClassIDDoneElements")
+
+            let TitleElelment = document.createElement("h4")
+            TitleElelment.textContent = element.title
+
+            let DescriptionElelment = document.createElement("p")
+            DescriptionElelment.textContent = "Description : " + element.description
+
+            let statusElelment = document.createElement("p")
+            statusElelment.textContent = "status : " + element.status
+
+            let priorityElelment = document.createElement("p")
+            priorityElelment.textContent = "priority : " + element.priority
+
+            let assigneeElelment = document.createElement("p")
+            assigneeElelment.textContent = "asignne -> " + element.assignee
+
+            let ModiferCard = document.createElement("button")
+            ModiferCard.textContent = "Modifier Card"
+            ModiferCard.setAttribute("data-id", element.id)
+            ModiferCard.classList.add("butModifer", "btn", "btn-outline-success")
+
+            containar.append(idElelment, TitleElelment, DescriptionElelment, statusElelment, priorityElelment, assigneeElelment, ModiferCard)
+
+
+            afichageDone.append(containar)
+
+
+        }
+        const ModiferCard = document.querySelectorAll(".butModifer")
+
+        ModiferCard.forEach(butt => {
+            butt.addEventListener("click", () => {
+                const id = butt.dataset.id;
+                // console.log(id)
+                myModal.show()
+            })
+        });
+
+
+    })
+
+
+
+};
+
+
+
 //show Modal //
 
 
-const butAjouterCard=document.querySelector("#but-Ajouter")
-const sectionmodale=document.querySelector("#modale")
-export const myModal=new bootstrap.Modal(sectionmodale)
+const butAjouterCard = document.querySelector("#but-Ajouter")
+const sectionmodale = document.querySelector("#modale")
+export const myModal = new bootstrap.Modal(sectionmodale)
 
 
 
 // const sectionCards=document.querySelector("#sec-Afichage")
 
-butAjouterCard.addEventListener("click",()=>{
-   
-   myModal.show()
+butAjouterCard.addEventListener("click", () => {
+
+    myModal.show()
 })
 
-export const ButcreateCard=document.querySelector("#createCard")
-export function createtasckSurForm(){
+export const ButcreateCard = document.querySelector("#createCard")
+export function createtasckSurForm() {
 
-    let tasck={
-        title:document.querySelector("#taskTitle").value,
-        description:document.querySelector("#taskDescription").value,
-        status:document.querySelector("#taskStatus").value,
-        priority:document.querySelector("#taskPriority").value,
-        assignee:document.querySelector("#taskAssignee").value,
+    let tasck = {
+        title: document.querySelector("#taskTitle").value,
+        description: document.querySelector("#taskDescription").value,
+        status: document.querySelector("#taskStatus").value,
+        priority: document.querySelector("#taskPriority").value,
+        assignee: document.querySelector("#taskAssignee").value,
     }
     return tasck
 
 }
 
 
-export const filterassigne=document.querySelector("#filter-assigne")
-export const filterRecherche=document.querySelector("#filter-recherche")
+export const filterassigne = document.querySelector("#filter-assigne")
+export const filterRecherche = document.querySelector("#filter-recherche")
 
 
-export const butRenisialiser=document.querySelector(".btnIcon")
+export const butRenisialiser = document.querySelector(".btnIcon")
+
+
+
 

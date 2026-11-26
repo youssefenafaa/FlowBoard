@@ -4,41 +4,41 @@ import * as ui from './ui.js'
 
 async function init() {
     try {
-        const data=await api.loadData()
+        const data = await api.loadData()
         ui.afichage(data)
     } catch (error) {
-        console.error("erreur:",error)
+        console.error("erreur:", error)
     }
 }
 init()
 
 
-ui.ButcreateCard.addEventListener("click",async()=>{
+ui.ButcreateCard.addEventListener("click", async () => {
     try {
-   const tasck=ui.createtasckSurForm();
-   await api.createTasck(tasck)
-   init()
-   ui.myModal.hide()
+        const tasck = ui.createtasckSurForm();
+        await api.createTasck(tasck)
+        init()
+        ui.myModal.hide()
     } catch (error) {
-        console.error("Erreur:",error.response?.data||error.message)
+        console.error("Erreur:", error.response?.data || error.message)
     }
-   
+
 
 })
 
 
-function appliqueFilter(){
-    api.filterData(ui.filterRecherche.value,ui.filterassigne.value,ui.afichage)
+function appliqueFilter() {
+    api.filterData(ui.filterRecherche.value, ui.filterassigne.value, ui.afichage)
 }
 ui.filterRecherche.addEventListener("input", appliqueFilter)
 
 ui.filterassigne.addEventListener("change", appliqueFilter)
 
 
-ui.butRenisialiser.addEventListener("click",async()=>{
-    ui.filterassigne.value=""
-    ui.filterRecherche.value=""
-    const data=await api.loadData()
+ui.butRenisialiser.addEventListener("click", async () => {
+    ui.filterassigne.value = ""
+    ui.filterRecherche.value = ""
+    const data = await api.loadData()
     ui.afichage(data)
-    
+
 })
