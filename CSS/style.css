@@ -40,7 +40,7 @@ header{
 
 #sec-Afichage{
     display: flex;
-    justify-content:space-around ;
+    justify-content:spac ;
     align-items:center;
 
 }
@@ -48,6 +48,7 @@ header{
     color:aliceblue;
     background-color: #64748b;
     padding:10px 0px 0px 60px  ;
+    margin-left: 45px;
     width: 250px;
     height: auto;
     border-radius: 10px;
@@ -55,19 +56,67 @@ header{
 #title-InProgress{
     color:aliceblue;
     background-color: #3B82F6;
+    padding:10px 0px 0px 60px  ;
   color:aliceblue;
-   padding:10px 0px 0px 30px  ;
+   padding:10px  ;
+   margin-left: 45px;
     width: 250px;
     height: auto;
     border-radius: 10px;
 }
 #title-Done{
     color:aliceblue;
-    background-color: #22C55E; 
-    padding:10px 0px 0px 60px  ;
+    background-color: #146331; 
+    padding: 10px;
+    margin-left: 45px;
     width: 250px;
     height: auto;
     border-radius: 10px;
+}
+
+.containarDone{
+    background-color: #146331;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+.containarInProgress{
+    background-color: #3B82F6;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+.containarTodo{
+    background-color: #64748b;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+  
+
+}
+ .sec-Inprogress{
+    margin-bottom: 113rem;
+} 
+ .sec-Done{
+    margin-bottom:65rem ;
+} 
+
+
+
+.afichage-Done{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.afichage-Inprogress{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.afichage-todo{
+     display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 
