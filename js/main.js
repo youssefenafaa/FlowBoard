@@ -33,3 +33,12 @@ function appliqueFilter(){
 ui.filterRecherche.addEventListener("input", appliqueFilter)
 
 ui.filterassigne.addEventListener("change", appliqueFilter)
+
+
+ui.butRenisialiser.addEventListener("click",async()=>{
+    ui.filterassigne.value=""
+    ui.filterRecherche.value=""
+    const data=await api.loadData()
+    ui.afichage(data)
+    
+})

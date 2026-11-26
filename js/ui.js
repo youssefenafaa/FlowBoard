@@ -146,4 +146,5 @@ export const filterassigne=document.querySelector("#filter-assigne")
 export const filterRecherche=document.querySelector("#filter-recherche")
 
 
+export const butRenisialiser=document.querySelector(".btnIcon")
 
