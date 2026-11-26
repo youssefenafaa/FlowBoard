@@ -111,12 +111,18 @@ containar.classList.add('containarDone')
 }
 
 
-function ajouterCard(){
 
-}
 const butAjouterCard=document.querySelector("#but-Ajouter")
+const sectionmodale=document.querySelector("#modale")
+const myModal=new bootstrap.Modal(sectionmodale)
+
+const sectionCards=document.querySelector("#sec-Afichage")
+
 butAjouterCard.addEventListener("click",()=>{
    
+   
+   myModal.show()
 
-    
+
+
 })
