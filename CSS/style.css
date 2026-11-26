@@ -136,7 +136,25 @@ header{
     flex-direction: column;
     gap: 10px;
 }
+.ClassIDTodoElements{
+    background-color: rgb(47, 54, 86);
+    border-radius: 50%;
+    width: 30px;
+   padding-left: 6px;
+}
+.ClassIDInProgressElements{
+    background-color: rgb(138, 150, 202);
+    border-radius: 50%;
+    width: 30px;
+   padding-left: 6px;
 
+}
+.ClassIDDoneElements{
+background-color: rgb(75, 113, 75);
+    border-radius: 50%;
+    width: 30px;
+   padding-left: 6px;
+}
 
 
 
