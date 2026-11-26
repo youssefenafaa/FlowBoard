@@ -8,8 +8,9 @@ let afichageDone=document.querySelector(".afichage-Done")
 
 
 export function afichage(cards){
-  
-
+  document.querySelector(".afichage-todo").textContent=""
+  document.querySelector(".afichage-Inprogress").textContent=""
+document.querySelector(".afichage-Done").textContent=""
 
 cards.forEach(element => {
     if(element.status=="todo"){
@@ -138,7 +139,11 @@ export function createtasckSurForm(){
     }
     return tasck
 
-
 }
+
+
+export const filterassigne=document.querySelector("#filter-assigne")
+export const filterRecherche=document.querySelector("#filter-recherche")
+
 
 

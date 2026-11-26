@@ -23,3 +23,24 @@ const options = {
   return data
 
 }
+
+export async function filterData(title,assignee,resolved,rejected){
+    const objet = {}
+  if (title) {
+    objet.title_like= title
+  }
+  if (assignee) {
+    objet.assignee = assignee
+  }
+ 
+
+  try{
+       let response = await axios.get('https://flowboard-api-virid.vercel.app/cards?', {
+      params: objet,
+    })
+    resolved(response.data)
+  }
+catch (error){
+ rejected(error)
+}
+}
