@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,26 +8,27 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/CSS/style.css">
     <script type="module" src="./js/main.js" defer></script>
-    
+
 </head>
+
 <body>
     <header>
         <section class="sec-Patie-Title">
-     <div class="partie-logo">
-        <h6>project / Youssef project </h6>  
-     <h1> <strong>TASKS PROJECT</strong></h1>
-     </div> 
-     <div class="partie-customer">
-        <p>Customer Youssef </p>
-     </div>
-     
+            <div class="partie-logo">
+                <h6>project / Youssef project </h6>
+                <h1> <strong>TASKS PROJECT</strong></h1>
+            </div>
+            <div class="partie-customer">
+                <p>Customer Youssef </p>
+            </div>
+
         </section>
         <section class="Sec-Prtie-Filtrage">
 
             <button class="btn btn-outline-primary " id="but-Ajouter">Add New</button>
 
             <div class="">
-           <input type="search" class="" placeholder="search....">
+                <input type="search" class="" placeholder="search....">
             </div>
 
             <select name="" id="" class="form-select w-25 ">
@@ -34,33 +36,112 @@
                 <option value=""></option>
                 <option value=""></option>
             </select>
-            
-            
+
+
         </section>
 
     </header>
 
     <body>
         <section id="sec-Afichage">
-        <section class="sec-Todo">
-            <h3 id="title-Todo"><strong>To Do</strong> </h3>
-            <ul class="afichage-todo"></ul>
-        </section>
-        <section class="sec-Inprogress">
-            <h3 id="title-InProgress"><strong>In Progress</strong> </h3>
-            <ul class="afichage-Inprogress"></ul>
-            
-        </section>
-        <section class="sec-Done">
-            <h3 id="title-Done"> <strong>Done</strong></h3>
-            <ul class="afichage-Done"></ul>
-        </section>
+            <section class="sec-Todo">
+                <h3 id="title-Todo"><strong>To Do</strong> </h3>
+                <ul class="afichage-todo"></ul>
+            </section>
+            <section class="sec-Inprogress">
+                <h3 id="title-InProgress"><strong>In Progress</strong> </h3>
+                <ul class="afichage-Inprogress"></ul>
+
+            </section>
+            <section class="sec-Done">
+                <h3 id="title-Done"> <strong>Done</strong></h3>
+                <ul class="afichage-Done"></ul>
+            </section>
         </section>
 
-         
 
 
-        
+
+        <section class="modal fade" >
+            <div id="taskModal">
+                <div class="modal-dialog modal-dialog-centered">
+
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title">Create New Task</h5>
+                            
+                        </div>
+
+                        <div class="modal-body">
+
+                            <!-- Title -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Title</label>
+                                <input type="text" class="form-control" id="taskTitle" placeholder="Enter task title">
+                            </div>
+
+                            <!-- Assignee -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Assignee</label>
+                                <select class="form-select" id="taskAssignee">
+                                    <option value="">Select Assignee</option>
+                                    <option value="Amina Haddad">Amina Haddad</option>
+                                    <option value="Lucas Martin">Lucas Martin</option>
+                                    <option value="Yasmine Benali">Yasmine Benali</option>
+                                    <option value="Thomas Leroy">Thomas Leroy</option>
+                                    <option value="Inès Moreau">Inès Moreau</option>
+                                </select>
+                            </div>
+
+                            <!-- Status -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Status</label>
+                                <select class="form-select" id="taskStatus">
+                                    <option value="todo">To Do</option>
+                                    <option value="in-progress">In Progress</option>
+                                    <option value="done">Done</option>
+                                </select>
+                            </div>
+
+                            <!-- Priority -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Priority</label>
+                                <select class="form-select" id="taskPriority">
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                </select>
+                            </div>
+
+                            <!-- Description -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Description</label>
+                                <textarea class="form-control" id="taskDescription" rows="3"
+                                    placeholder="Enter task description"></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Cancel
+                            </button>
+
+                            <button type="button" class="btn btn-primary" id="createCard">
+                                Create Card
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
     </body>
     <footer>
 
@@ -74,7 +155,7 @@
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
 </html>

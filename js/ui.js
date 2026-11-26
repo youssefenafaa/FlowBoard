@@ -111,3 +111,12 @@ containar.classList.add('containarDone')
 }
 
 
+function ajouterCard(){
+
+}
+const butAjouterCard=document.querySelector("#but-Ajouter")
+butAjouterCard.addEventListener("click",()=>{
+   
+
+    
+})
