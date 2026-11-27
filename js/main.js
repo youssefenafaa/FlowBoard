@@ -13,18 +13,7 @@ async function init() {
 init()
 
 
-ui.ButcreateCard.addEventListener("click", async () => {
-    try {
-        const tasck = ui.createtasckSurForm();
-        await api.createTasck(tasck)
-        init()
-        ui.myModal.hide()
-    } catch (error) {
-        console.error("Erreur:", error.response?.data || error.message)
-    }
 
-
-})
 
 
 function appliqueFilter() {
@@ -42,3 +31,42 @@ ui.butRenisialiser.addEventListener("click", async () => {
     ui.afichage(data)
 
 })
+
+////Ajouter ET Modifier
+
+ui.formModale.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const tasck = ui.createtasckSurForm();
+    const id = ui.ButcreateCard.dataset.id;
+
+    try {
+
+        if (id) {
+            // Modification
+            await api.PutModification(id, tasck);
+
+        } else {
+            // Création
+            await api.createTasck(tasck);
+        }
+
+        // Actualiser les cards
+        const data = await api.loadData();
+        ui.afichage(data);
+
+        // Réinitialiser le bouton
+        ui.ButcreateCard.removeAttribute("data-id");
+
+        // Fermer le modal
+        ui.myModal.hide();
+
+        // Vider le formulaire
+        ui.formModale.reset();
+
+    } catch (error) {
+        console.error("Erreur:", error.response?.data || error.message);
+    }
+
+});

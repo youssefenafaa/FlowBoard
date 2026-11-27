@@ -44,3 +44,44 @@ export async function filterData(title, assignee, resolved, rejected) {
         rejected(error)
     }
 }
+
+
+
+
+export async function GetCatds(id) {
+
+  
+   return await axios.get('https://flowboard-api-virid.vercel.app/cards/'+id)
+
+  
+}
+
+
+
+
+/////////Put La modofocation///
+export async function  PutModification(id,cards){
+  
+const options = {
+  method: 'PUT',
+  url: 'https://flowboard-api-virid.vercel.app/cards/'+id+'?password=1234',
+  headers: {
+    'X-Workspace': 'public',
+    'Content-Type': 'application/json'
+  },
+  data: cards
+}
+
+try {
+  const { data } = await axios.request(options)
+  return data
+  
+} catch (error) {
+  console.error(error)
+  throw error
+
+}
+ 
+ 
+  
+} 

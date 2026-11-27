@@ -1,3 +1,4 @@
+import {GetCatds} from './Api.js'
 let PartieTodo = document.querySelector(".sec-Todo")
 let PartieInProgress = document.querySelector(".sec-Inprogress")
 let PartieDone = document.querySelector(".sec-Done")
@@ -123,25 +124,38 @@ export function afichage(cards) {
 
 
         }
-        const ModiferCard = document.querySelectorAll(".butModifer")
-
-        ModiferCard.forEach(butt => {
-            butt.addEventListener("click", () => {
-                const id = butt.dataset.id;
-                // console.log(id)
-                myModal.show()
-            })
-        });
+        
 
 
     })
 
 
+    const ModiferCard = document.querySelectorAll(".butModifer")
+
+        ModiferCard.forEach(butt => {
+            butt.addEventListener("click", async (e) => {
+
+                let { data } = await GetCatds(e.currentTarget.dataset.id)
+                // const id = butt.dataset.id;
+                // console.log(id)
+                myModal.show()
+
+                ButSaveModification.setAttribute("data-id", data.id)
+                document.querySelector("#taskTitle").value = data.title
+                document.querySelector("#taskDescription").value = data.description                
+                document.querySelector("#taskStatus").value = data.status
+                document.querySelector("#taskPriority").value = data.priority
+                document.querySelector("#taskAssignee").value = data.assignee
+
+
+            })
+        });
 
 };
 
 
-
+export const formModale=document.querySelector("#form-modale")
+export const ButSaveModification=document.querySelector("#createCard")
 //show Modal //
 
 
@@ -153,10 +167,16 @@ export const myModal = new bootstrap.Modal(sectionmodale)
 
 // const sectionCards=document.querySelector("#sec-Afichage")
 
+
 butAjouterCard.addEventListener("click", () => {
 
-    myModal.show()
-})
+    ButSaveModification.removeAttribute("data-id");
+
+    formModale.reset();
+
+    myModal.show();
+
+});
 
 export const ButcreateCard = document.querySelector("#createCard")
 export function createtasckSurForm() {
