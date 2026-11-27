@@ -1,4 +1,4 @@
-import {GetCatds} from './Api.js'
+import { GetCatds, loadData, supprimerCarte } from './Api.js'
 let PartieTodo = document.querySelector(".sec-Todo")
 let PartieInProgress = document.querySelector(".sec-Inprogress")
 let PartieDone = document.querySelector(".sec-Done")
@@ -43,13 +43,49 @@ export function afichage(cards) {
             ModiferCard.setAttribute("data-id", element.id)
             ModiferCard.classList.add("butModifer", "btn", "btn-dark")
 
-             let SupprimerCard = document.createElement("button")
+            let SupprimerCard = document.createElement("button")
             SupprimerCard.textContent = "Supprimer Card"
             SupprimerCard.setAttribute("data-id", element.id)
             SupprimerCard.classList.add("ButSupprimer", "btn", "btn-warning")
 
 
-            containar.append(idElelment, TitleElelment, DescriptionElelment, statusElelment, priorityElelment, assigneeElelment, ModiferCard,SupprimerCard)
+            SupprimerCard.addEventListener("click", async () => {
+
+                const result = await Swal.fire({
+                    title: "Êtes-vous sûr ?",
+                    text: "Cette tâche sera supprimée définitivement !",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Oui, supprimer",
+                    cancelButtonText: "Annuler"
+                });
+
+                if (result.isConfirmed) {
+
+                    try {
+                        await supprimerCarte(element.id);
+
+                        Swal.fire({
+                            title: "Supprimée !",
+                            text: "La tâche a été supprimée.",
+                            icon: "success"
+                        });
+
+                        const data = await loadData();
+                        afichage(data);
+
+                    } catch (error) {
+                        Swal.fire("Erreur", "La suppression a échoué.", "error");
+                    }
+
+                }
+
+            });
+
+
+
+
+            containar.append(idElelment, TitleElelment, DescriptionElelment, statusElelment, priorityElelment, assigneeElelment, ModiferCard, SupprimerCard)
 
 
 
@@ -86,13 +122,46 @@ export function afichage(cards) {
             ModiferCard.setAttribute("data-id", element.id)
             ModiferCard.classList.add("butModifer", "btn", "btn-info")
 
-                         let SupprimerCard = document.createElement("button")
+            let SupprimerCard = document.createElement("button")
             SupprimerCard.textContent = "Supprimer  Card"
             SupprimerCard.setAttribute("data-id", element.id)
             SupprimerCard.classList.add("ButSupprimer", "btn", "btn-warning")
 
+            SupprimerCard.addEventListener("click", async () => {
 
-            containar.append(idElelment, TitleElelment, DescriptionElelment, statusElelment, priorityElelment, assigneeElelment, ModiferCard,SupprimerCard)
+                const result = await Swal.fire({
+                    title: "Êtes-vous sûr ?",
+                    text: "Cette tâche sera supprimée définitivement !",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Oui, supprimer",
+                    cancelButtonText: "Annuler"
+                });
+
+                if (result.isConfirmed) {
+
+                    try {
+                        await supprimerCarte(element.id);
+
+                        Swal.fire({
+                            title: "Supprimée !",
+                            text: "La tâche a été supprimée.",
+                            icon: "success"
+                        });
+
+                        const data = await loadData();
+                        afichage(data);
+
+                    } catch (error) {
+                        Swal.fire("Erreur", "La suppression a échoué.", "error");
+                    }
+
+                }
+
+            });
+
+
+            containar.append(idElelment, TitleElelment, DescriptionElelment, statusElelment, priorityElelment, assigneeElelment, ModiferCard, SupprimerCard)
 
 
             InProgressAffichage.append(containar)
@@ -129,20 +198,53 @@ export function afichage(cards) {
             ModiferCard.setAttribute("data-id", element.id)
             ModiferCard.classList.add("butModifer", "btn", "btn-outline-success")
 
-                         let SupprimerCard = document.createElement("button")
+            let SupprimerCard = document.createElement("button")
             SupprimerCard.textContent = "Supprimer Card"
             SupprimerCard.setAttribute("data-id", element.id)
             SupprimerCard.classList.add("ButSupprimer", "btn", "btn-warning")
 
+            SupprimerCard.addEventListener("click", async () => {
 
-            containar.append(idElelment, TitleElelment, DescriptionElelment, statusElelment, priorityElelment, assigneeElelment, ModiferCard,SupprimerCard)
+                const result = await Swal.fire({
+                    title: "Êtes-vous sûr ?",
+                    text: "Cette tâche sera supprimée définitivement !",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Oui, supprimer",
+                    cancelButtonText: "Annuler"
+                });
+
+                if (result.isConfirmed) {
+
+                    try {
+                        await supprimerCarte(element.id);
+
+                        Swal.fire({
+                            title: "Supprimée !",
+                            text: "La tâche a été supprimée.",
+                            icon: "success"
+                        });
+
+                        const data = await loadData();
+                        afichage(data);
+
+                    } catch (error) {
+                        Swal.fire("Erreur", "La suppression a échoué.", "error");
+                    }
+
+                }
+
+            });
+
+
+            containar.append(idElelment, TitleElelment, DescriptionElelment, statusElelment, priorityElelment, assigneeElelment, ModiferCard, SupprimerCard)
 
 
             afichageDone.append(containar)
 
 
         }
-        
+
 
 
     })
@@ -150,30 +252,30 @@ export function afichage(cards) {
 
     const ModiferCard = document.querySelectorAll(".butModifer")
 
-        ModiferCard.forEach(butt => {
-            butt.addEventListener("click", async (e) => {
+    ModiferCard.forEach(butt => {
+        butt.addEventListener("click", async (e) => {
 
-                let { data } = await GetCatds(e.currentTarget.dataset.id)
-                // const id = butt.dataset.id;
-                // console.log(id)
-                myModal.show()
+            let { data } = await GetCatds(e.currentTarget.dataset.id)
+            // const id = butt.dataset.id;
+            // console.log(id)
+            myModal.show()
 
-                ButSaveModification.setAttribute("data-id", data.id)
-                document.querySelector("#taskTitle").value = data.title
-                document.querySelector("#taskDescription").value = data.description                
-                document.querySelector("#taskStatus").value = data.status
-                document.querySelector("#taskPriority").value = data.priority
-                document.querySelector("#taskAssignee").value = data.assignee
+            ButSaveModification.setAttribute("data-id", data.id)
+            document.querySelector("#taskTitle").value = data.title
+            document.querySelector("#taskDescription").value = data.description
+            document.querySelector("#taskStatus").value = data.status
+            document.querySelector("#taskPriority").value = data.priority
+            document.querySelector("#taskAssignee").value = data.assignee
 
 
-            })
-        });
+        })
+    });
 
 };
 
 
-export const formModale=document.querySelector("#form-modale")
-export const ButSaveModification=document.querySelector("#createCard")
+export const formModale = document.querySelector("#form-modale")
+export const ButSaveModification = document.querySelector("#createCard")
 //show Modal //
 
 
@@ -216,7 +318,6 @@ export const filterRecherche = document.querySelector("#filter-recherche")
 
 
 export const butRenisialiser = document.querySelector(".btnIcon")
-
 
 
 
