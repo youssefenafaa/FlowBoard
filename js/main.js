@@ -72,3 +72,62 @@ ui.formModale.addEventListener("submit", async (e) => {
 });
 
 
+////Move Cards///
+let cardId;
+
+document.addEventListener("dragstart", (e) => {
+
+    if (e.target.tagName === "LI") {
+
+        cardId = e.target.querySelector("p").textContent;
+
+        // console.log( cardId);
+
+    }
+
+});
+
+ui.TodoAffichage.addEventListener("dragover", (e) => {
+    e.preventDefault();
+});
+
+ui.InProgressAffichage.addEventListener("dragover", (e) => {
+    e.preventDefault();
+});
+
+ui.afichageDone.addEventListener("dragover", (e) => {
+    e.preventDefault();
+});
+
+ui.TodoAffichage.addEventListener("drop", async () => {
+    let newStatus = "todo";
+    // console.log(newStatus);
+    const { data } = await api.GetCatds(cardId)
+    // console.log(data)
+    data.status = newStatus
+    await api.PutModification(cardId, data);
+    const cards = await api.loadData()
+    ui.afichage(cards)
+});
+
+ui.InProgressAffichage.addEventListener("drop", async () => {
+    let newStatus = "in-progress";
+    // console.log(newStatus);
+    const { data } = await api.GetCatds(cardId)
+    // console.log(data)
+    data.status = newStatus
+    await api.PutModification(cardId, data);
+    const cards = await api.loadData()
+    ui.afichage(cards)
+});
+
+ui.afichageDone.addEventListener("drop", async () => {
+    let newStatus = "done";
+    // console.log(newStatus);
+    const { data } = await api.GetCatds(cardId)
+    // console.log(data)
+    data.status = newStatus
+    await api.PutModification(cardId, data);
+    const cards = await api.loadData()
+    ui.afichage(cards)
+});

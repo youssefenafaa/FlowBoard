@@ -3,9 +3,9 @@ let PartieTodo = document.querySelector(".sec-Todo")
 let PartieInProgress = document.querySelector(".sec-Inprogress")
 let PartieDone = document.querySelector(".sec-Done")
 
-let TodoAffichage = document.querySelector(".afichage-todo")
-let InProgressAffichage = document.querySelector(".afichage-Inprogress")
-let afichageDone = document.querySelector(".afichage-Done")
+export let TodoAffichage = document.querySelector(".afichage-todo")
+export let InProgressAffichage = document.querySelector(".afichage-Inprogress")
+export let afichageDone = document.querySelector(".afichage-Done")
 
 
 export function afichage(cards) {
@@ -17,6 +17,7 @@ export function afichage(cards) {
         if (element.status == "todo") {
             let containar = document.createElement("li")
             containar.classList.add('containarTodo')
+            containar.setAttribute("draggable", true);
 
             let idElelment = document.createElement("p")
             idElelment.textContent = element.id
@@ -97,6 +98,7 @@ export function afichage(cards) {
         if (element.status == "in-progress") {
             let containar = document.createElement("li")
             containar.classList.add('containarInProgress')
+             containar.setAttribute("draggable", true);
 
             let idElelment = document.createElement("p")
             idElelment.textContent = element.id
@@ -173,6 +175,7 @@ export function afichage(cards) {
         if (element.status == "done") {
             let containar = document.createElement("li")
             containar.classList.add('containarDone')
+             containar.setAttribute("draggable", true);
 
             let idElelment = document.createElement("p")
             idElelment.textContent = element.id
@@ -318,6 +321,7 @@ export const filterRecherche = document.querySelector("#filter-recherche")
 
 
 export const butRenisialiser = document.querySelector(".btnIcon")
+
 
 
 
