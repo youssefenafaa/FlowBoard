@@ -43,7 +43,13 @@ export function afichage(cards) {
             ModiferCard.setAttribute("data-id", element.id)
             ModiferCard.classList.add("butModifer", "btn", "btn-dark")
 
-            containar.append(idElelment, TitleElelment, DescriptionElelment, statusElelment, priorityElelment, assigneeElelment, ModiferCard)
+             let SupprimerCard = document.createElement("button")
+            SupprimerCard.textContent = "Supprimer Card"
+            SupprimerCard.setAttribute("data-id", element.id)
+            SupprimerCard.classList.add("ButSupprimer", "btn", "btn-warning")
+
+
+            containar.append(idElelment, TitleElelment, DescriptionElelment, statusElelment, priorityElelment, assigneeElelment, ModiferCard,SupprimerCard)
 
 
 
@@ -78,9 +84,15 @@ export function afichage(cards) {
             let ModiferCard = document.createElement("button")
             ModiferCard.textContent = "Modifier Card"
             ModiferCard.setAttribute("data-id", element.id)
-            ModiferCard.classList.add("butModifer", "btn", "btn-light")
+            ModiferCard.classList.add("butModifer", "btn", "btn-info")
 
-            containar.append(idElelment, TitleElelment, DescriptionElelment, statusElelment, priorityElelment, assigneeElelment, ModiferCard)
+                         let SupprimerCard = document.createElement("button")
+            SupprimerCard.textContent = "Supprimer  Card"
+            SupprimerCard.setAttribute("data-id", element.id)
+            SupprimerCard.classList.add("ButSupprimer", "btn", "btn-warning")
+
+
+            containar.append(idElelment, TitleElelment, DescriptionElelment, statusElelment, priorityElelment, assigneeElelment, ModiferCard,SupprimerCard)
 
 
             InProgressAffichage.append(containar)
@@ -117,7 +129,13 @@ export function afichage(cards) {
             ModiferCard.setAttribute("data-id", element.id)
             ModiferCard.classList.add("butModifer", "btn", "btn-outline-success")
 
-            containar.append(idElelment, TitleElelment, DescriptionElelment, statusElelment, priorityElelment, assigneeElelment, ModiferCard)
+                         let SupprimerCard = document.createElement("button")
+            SupprimerCard.textContent = "Supprimer Card"
+            SupprimerCard.setAttribute("data-id", element.id)
+            SupprimerCard.classList.add("ButSupprimer", "btn", "btn-warning")
+
+
+            containar.append(idElelment, TitleElelment, DescriptionElelment, statusElelment, priorityElelment, assigneeElelment, ModiferCard,SupprimerCard)
 
 
             afichageDone.append(containar)
