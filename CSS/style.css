@@ -180,7 +180,12 @@ header {
     margin-left: 4px;
     color: aliceblue;
 }
-
+#btn-ai {
+    background: linear-gradient(135deg, #7254D8, #9B6DFF);
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
 
 
 @media screen and (max-width: 768px) {
