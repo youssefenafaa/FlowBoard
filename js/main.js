@@ -131,3 +131,22 @@ ui.afichageDone.addEventListener("drop", async () => {
     const cards = await api.loadData()
     ui.afichage(cards)
 });
+
+
+
+///IA.......////
+document.querySelector("#generateBtn").addEventListener("click",async ()=>{
+    let description = document.querySelector("#projectDescription").value;
+let count = document.querySelector("#taskCount").value;
+
+// console.log(description)
+// console.log(count)
+
+    document.querySelector("#generateBtn").style.display="none"
+    document.querySelector("#TextTraitment").textContent="Traitement En Cours"
+    const result=await api.GenerieIA(count,description)
+    // console.log(result)
+    document.querySelector("#aiModal .btn-close").click()
+    const data=await api.loadData()
+    ui.afichage(data)
+})

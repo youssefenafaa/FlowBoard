@@ -186,6 +186,9 @@ header {
     border: none;
     border-radius: 8px;
 }
+#TextTraitment{
+    color: #7254D8;
+}
 
 
 @media screen and (max-width: 768px) {

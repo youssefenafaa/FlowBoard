@@ -174,10 +174,10 @@
                         <div class="modal-body">
                             <label class="form-label">Project Description</label>
                             <textarea class="form-control" id="projectDescription"
-                                placeholder="Describe your project..." rows="3"></textarea>
+                                placeholder="Describe your project..." rows="3" minlength="20" maxlength="1000"></textarea>
 
                             <label class="form-label mt-3">Number of Tasks</label>
-                            <input type="number" class="form-control" id="taskCount" min="1" max="20" value="5">
+                            <input type="number" class="form-control" id="taskCount" min="1" max="10" value="5">
                         </div>
 
                         <div class="modal-footer">
@@ -187,6 +187,7 @@
                             <button type="button" class="btn btn-primary" id="generateBtn">
                                 Generate
                             </button>
+                            <p id="TextTraitment"></p>
                         </div>
 
                     </div>

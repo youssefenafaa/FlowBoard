@@ -93,3 +93,24 @@ export async function supprimerCarte(id) {
         
     );
 }
+
+
+export async function GenerieIA(count,description) {
+
+    const options = {
+        method: 'POST',
+        url: 'https://flowboard-api-virid.vercel.app/ai/cards?password=1234',
+        headers: {
+            'X-Workspace': 'public',
+            'Content-Type': 'application/json'
+        },
+        data: {
+            description: description,
+            count: Number(count)
+        }
+    };
+
+    const { data } = await axios.request(options);
+    return data;
+}
+
